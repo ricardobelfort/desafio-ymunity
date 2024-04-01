@@ -6,7 +6,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 
-interface Patient {
+interface Option {
   name: string;
   code: string;
 }
@@ -27,14 +27,14 @@ interface Patient {
 })
 export class HomeComponent implements OnInit {
   search!: string;
-  patients: Patient[] | undefined;
-  selectedPatient: Patient | undefined = {
+  options: Option[] | undefined;
+  selectedPatient: Option | undefined = {
     name: 'PACIENTES ATIVOS',
     code: 'PA',
   };
 
   ngOnInit() {
-    this.patients = [
+    this.options = [
       { name: 'TODOS OS PACIENTES', code: 'ALL' },
       { name: 'PACIENTES ATIVOS', code: 'PA' },
       { name: 'PACIENTES INATIVOS', code: 'PI' },
