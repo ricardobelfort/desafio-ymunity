@@ -2,7 +2,7 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 @import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@300,400,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@400,700&display=swap');
 
 @layer reset, primeng;
 
@@ -12,4 +12,17 @@
   .p-avatar { font-family: "Montserrat", sans-serif; }
   .p-button { background-color: #797EF5; }
   .p-button:hover { background-color: #363885; }
+
+  .p-datatable .p-datatable-thead > tr > th {
+    background: #E0E9F8;
+    border: 1px solid #F7F8F9;
+    border-width: 0 0 5px 0;
+  }
+  .p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
+    background: #F6F9FC;
+  }
+  .p-datatable .p-datatable-tbody > tr > td {
+    border: 1px solid #F7F8F9;
+    border-width: 0 0 5px 0;
+  }
 }

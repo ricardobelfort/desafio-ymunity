@@ -1,16 +1,42 @@
 <div class="wrapper">
   <app-sidebar></app-sidebar>
-  <section>
-    <header>
-      <h1>Pacientes</h1>
-      <p-button label="Cadastrar Paciente" icon="pi pi-plus"></p-button>
-    </header>
-    <div class="custom-fields">
-      <span class="p-input-icon-right">
-        <i class="pi pi-search"></i>
-        <input type="text" placeholder="Pesquisar" pInputText [(ngModel)]="search" />
-      </span>
-      <p-dropdown [options]="options" [(ngModel)]="selectedPatient" optionLabel="name" [showClear]="true" placeholder="Selecione um status"></p-dropdown>
-    </div>
-  </section>
+  <main class="container">
+    <section class="header-section">
+      <header>
+        <h1>Pacientes</h1>
+        <p-button label="Cadastrar Paciente" icon="pi pi-plus"></p-button>
+      </header>
+      <div class="custom-fields">
+        <span class="p-input-icon-right">
+          <i class="pi pi-search"></i>
+          <input type="text" placeholder="Pesquisar" pInputText [(ngModel)]="search" />
+        </span>
+        <p-dropdown [options]="options" [(ngModel)]="selectedPatient" optionLabel="name" [showClear]="true" placeholder="Selecione um status"></p-dropdown>
+      </div>
+    </section>
+    <section class="main-section">
+      <p-table [value]="patients" [paginator]="true" [rows]="10" currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entries" [rowsPerPageOptions]="[5, 10, 20]" [rowHover]="true" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="paciente">Paciente <p-sortIcon field="paciente"></p-sortIcon></th>
+            <th>Status</th>
+            <th>Diagnóstico</th>
+            <th>Medicamento</th>
+            <th>Plano de Saúde</th>
+            <th>Última Solicitação</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-patient>
+          <tr>
+            <td>{{ patient.paciente }}</td>
+            <td>{{ patient.status }}</td>
+            <td>{{ patient.diagnostico }}</td>
+            <td>{{ patient.medicamento }}</td>
+            <td>{{ patient.planoSaude }}</td>
+            <td>{{ patient.lastUpdate }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </section>
+  </main>
 </div>

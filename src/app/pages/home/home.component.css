@@ -5,21 +5,32 @@
   background-color: #F7F8F9;
 }
 
-.wrapper section {
-  width: 100%;
+.wrapper .container {
+  width: calc(100% - 214px);
+  height: 100%;
   padding: 2rem;
+  overflow: auto;
 }
 
-.wrapper section header,
-.wrapper section .custom-fields {
+.wrapper .header-section {
+  width: 100%;
+}
+
+.wrapper .header-section header,
+.wrapper .header-section .custom-fields {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
-.wrapper section header h1 {
+.wrapper .header-section header h1 {
   font-family: "Overpass", sans-serif;
   font-size: 1.75rem;
   font-weight: 600;
   color: #282E38;
+}
+
+.wrapper .main-section {
+  width: 100%;
 }
