@@ -1,0 +1,97 @@
+aside {
+  width: 214px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #272D63;
+  border-radius: 0 8px 8px 0;  
+}
+
+aside .logo {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+aside .logo img {
+  max-width: 137px;
+}
+
+aside .profile {
+  width: 177px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+aside .profile p {
+  font-family: "Overpass", sans-serif;
+  font-size: 1rem;
+  color: #fff;
+}
+
+aside .choose-profile {
+  width: 177px;
+  font-family: "Overpass", sans-serif;
+  font-size: 0.875rem;
+  border: none;
+  border-bottom: 1px solid #797EF5;
+  border-radius: 6px;
+  padding: 10.5px;
+  background-color: #272D63;
+  color: #fff;
+}
+
+aside .choose-profile:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+aside .navlinks, 
+aside .logout {
+  width: 100%;
+  list-style: none;
+  margin-top: 44px;
+  font-family: "Overpass", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
+}
+
+aside .logout {
+  margin-top: 300px;
+}
+
+@media only screen and (max-height: 768px) {
+  aside .logout {
+    margin-top: 160px;
+  }
+}
+
+aside .navlinks .item, 
+aside .logout .item {
+  display: flex;
+  align-items: baseline;
+  height: 56px;
+  padding: 1rem;
+  transition: 0.2s;
+  border-radius: 40px 0 0 40px;
+  line-height: 24px;
+}
+
+aside .navlinks .item:hover, 
+aside .logout .item:hover {
+  border-radius: 40px 0 0 40px;
+  background-color: #F7F8F9;
+  font-weight: 600;
+  color: #272D63;
+  cursor: pointer;
+}
+
+aside .navlinks .item i,
+aside .logout .item i {
+  margin-right: 7px;
+}

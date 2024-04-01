@@ -1,0 +1,23 @@
+<aside>
+  <div class="logo">
+    <img src="/assets/images/svg/logo.svg" alt="Ymunity App">
+  </div>
+  <div class="profile">
+    <p-avatar label="YM" styleClass="mr-2" [style]="{ 'background-color': '#E0E9F8', color: '#272D63', fontSize: '12px' }" shape="circle"></p-avatar>
+    <p>Nome Sobrenome</p>
+  </div>
+
+  <input class="choose-profile" type="text" [(ngModel)]="value" />
+
+  <nav class="navlinks">
+    <li class="item"><i class="pi pi-home" style="font-size: 1rem"></i>Home</li>
+    <li class="item"><i class="pi pi-users" style="font-size: 1rem"></i>Pacientes</li>
+    <li class="item"><i class="pi pi-calendar-plus" style="font-size: 1rem"></i>Solicitações</li>
+    <li class="item"><i class="pi pi-briefcase" style="font-size: 1rem"></i>Atendimentos</li>
+    <li class="item"><i class="pi pi-chart-line" style="font-size: 1rem"></i>Dashboards</li>
+  </nav>
+
+  <nav class="logout">
+    <li class="item"><i class="pi pi-sign-out" style="font-size: 1rem"></i>Sair</li>
+  </nav>
+</aside>
