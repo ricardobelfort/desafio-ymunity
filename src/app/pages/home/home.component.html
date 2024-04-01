@@ -1,4 +1,16 @@
 <div class="wrapper">
   <app-sidebar></app-sidebar>
-  <section>conteudo aqui!</section>
+  <section>
+    <header>
+      <h1>Pacientes</h1>
+      <p-button label="Cadastrar Paciente" icon="pi pi-plus"></p-button>
+    </header>
+    <div class="custom-fields">
+      <span class="p-input-icon-right">
+        <i class="pi pi-search"></i>
+        <input type="text" placeholder="Pesquisar" pInputText [(ngModel)]="search" />
+      </span>
+      <p-dropdown [options]="patients" [(ngModel)]="selectedPatient" optionLabel="name" [showClear]="true" placeholder="Selecione um status"></p-dropdown>
+    </div>
+  </section>
 </div>
