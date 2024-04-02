@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
 
+## Local DB with JSON-SERVER 🚀
+
+First go to the backend folder,
+Run `npm start` for a local server. Navigate to `http://localhost:3000/patients` to load data to your project.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
