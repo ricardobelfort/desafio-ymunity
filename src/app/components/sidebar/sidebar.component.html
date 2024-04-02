@@ -1,10 +1,12 @@
 <aside>
   <div class="logo">
-    <img src="/assets/images/svg/logo.svg" alt="Ymunity App">
+    <a routerLink="/">
+      <img src="/assets/images/svg/logo.svg" alt="Ymunity App">
+    </a>
   </div>
   <div class="profile">
     <p-avatar label="YM" styleClass="mr-2" [style]="{ 'background-color': '#E0E9F8', color: '#272D63', fontSize: '12px' }" shape="circle"></p-avatar>
-    <p>Nome Sobrenome</p>
+    <p>{{ value }}</p>
   </div>
 
   <input class="choose-profile" type="text" [(ngModel)]="value" />
