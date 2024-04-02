@@ -71,7 +71,7 @@ aside .logout {
   }
 }
 
-aside .navlinks .item, 
+aside .navlinks .item a, 
 aside .logout .item {
   display: flex;
   align-items: baseline;
@@ -80,9 +80,11 @@ aside .logout .item {
   transition: 0.2s;
   border-radius: 40px 0 0 40px;
   line-height: 24px;
+  text-decoration: none;
+  color: #fff;
 }
 
-aside .navlinks .item:hover, 
+aside .navlinks .item a:hover, 
 aside .logout .item:hover {
   border-radius: 40px 0 0 40px;
   background-color: #F7F8F9;
@@ -91,14 +93,14 @@ aside .logout .item:hover {
   cursor: pointer;
 }
 
-aside .navlinks .item.active {
+aside .navlinks .item a.active {
   border-radius: 40px 0 0 40px;
   background-color: #F7F8F9;
   font-weight: 600;
   color: #272D63;
 }
 
-aside .navlinks .item i,
+aside .navlinks .item a i,
 aside .logout .item i {
   margin-right: 7px;
 }

@@ -1,0 +1,60 @@
+.header-section {
+  width: 100%;
+}
+
+.header-section header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-section header h1 {
+  font-family: "Overpass", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #282E38;
+}
+
+.main-section {
+  width: 100%;
+}
+
+.main-section .custom-fields {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown-items button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-items .content {
+  display: none;
+  min-width: 160px;
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid #E0E9F8;
+  position: absolute;
+  right: 0;
+  padding: 5px 0;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-items:hover .content {
+  display: block;
+}
+
+.dropdown-items .content a {
+  display: block;
+  color: #556376;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+.dropdown-items .content a:hover {
+  background: #EFF3F8;
+  color: #797EF5;
+}
