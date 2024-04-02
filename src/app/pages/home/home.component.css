@@ -38,3 +38,37 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.wrapper .dropdown-items button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.wrapper .dropdown-items .content {
+  display: none;
+  min-width: 130px;
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid #E0E9F8;
+  position: absolute;
+  right: 0;
+  padding: 5px 0;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .dropdown-items:hover .content {
+  display: block;
+}
+
+.wrapper .dropdown-items .content a {
+  display: block;
+  color: #556376;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+.wrapper .dropdown-items .content a:hover {
+  background: #EFF3F8;
+  color: #797EF5;
+}

@@ -6,7 +6,8 @@
 
 @layer reset {
   html, body { height: 100%; }
-  body { margin: 0; padding: 0; font-size: 16px; }
+  body { margin: 0; padding: 0; font-size: 16px; -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
   .p-avatar { font-family: "Montserrat", sans-serif; }
   .p-button { background-color: #797EF5; }
   .p-button:hover { background-color: #363885; }
@@ -54,5 +55,8 @@
     height: 0;
     border-color: transparent;
     border-style: solid;
+  }
+  .p-paginator {
+    justify-content: end;
   }
 }

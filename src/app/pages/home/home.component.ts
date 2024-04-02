@@ -10,15 +10,9 @@ import { TagModule } from 'primeng/tag';
 import { PatientService } from '../../services/patient.service';
 import { Table } from 'primeng/table';
 import { DatePipe } from '@angular/common';
-
-export interface Patient {
-  paciente: string;
-  status: boolean;
-  diagnostico: string;
-  medicamento: string;
-  planoSaude: string;
-  lastUpdate: string;
-}
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { Patient } from '../../components/models/patient';
+import { MenuItem } from 'primeng/api/menuitem';
 
 @Component({
   selector: 'app-home',
@@ -32,6 +26,7 @@ export interface Patient {
     TableModule,
     TooltipModule,
     TagModule,
+    SplitButtonModule,
     DatePipe,
   ],
   templateUrl: './home.component.html',
@@ -39,26 +34,25 @@ export interface Patient {
 })
 export class HomeComponent implements OnInit {
   @ViewChild('dt') dt: Table | undefined;
-  options!: any[];
-  selectedPatient = {
-    label: 'TODOS OS PACIENTES',
-    value: 'todos',
-  };
-
-  patients: Patient[] = [];
+  statuses!: any[];
+  patients!: Patient[];
   patientService = inject(PatientService);
   currentPage: number = 1;
+  items: MenuItem[] | undefined;
+  loading: boolean = true;
 
   ngOnInit() {
-    this.options = [
-      { label: 'TODOS OS PACIENTES', value: 'todos' },
-      { label: 'PACIENTES ATIVOS', value: 'ativos' },
-      { label: 'PACIENTES INATIVOS', value: 'inativos' },
+    this.statuses = [
+      { label: 'Pacientes ativos', value: 'ativo' },
+      { label: 'Pacientes inativos', value: 'inativo' },
     ];
 
-    this.patientService
-      .getPatientList(this.currentPage)
-      .subscribe((data) => (this.patients = data));
+    this.items = [{ label: 'Ativo' }, { label: 'Inativo' }];
+
+    this.patientService.getPatientList(this.currentPage).subscribe((data) => {
+      this.patients = data;
+      this.loading = false;
+    });
   }
 
   applyFilterGlobal($event: any, stringVal: any) {
@@ -66,14 +60,11 @@ export class HomeComponent implements OnInit {
   }
 
   getSeverity(status: string) {
-    switch (status) {
-      case 'todos':
-        return 'info';
-
-      case 'ativos':
+    switch (status.toLowerCase()) {
+      case 'ativo':
         return 'success';
 
-      case 'inativos':
+      case 'inativo':
         return 'danger';
     }
   }

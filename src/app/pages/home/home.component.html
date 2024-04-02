@@ -8,21 +8,29 @@
       </header>
     </section>
     <section class="main-section">
-      <p-table #dt [value]="patients" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} pacientes" [globalFilterFields]="['paciente', 'status', 'medicamento']" [rowsPerPageOptions]="[5, 10, 20]" [rowHover]="true" [tableStyle]="{ 'min-width': '50rem', 'font-size': '14px' }">
+      <p-table #dt [value]="patients" dataKey="id" [loading]="loading" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} pacientes" [globalFilterFields]="['paciente', 'status', 'diagnostico', 'medicamento', 'planoSaude']" [rowsPerPageOptions]="[5, 10, 20]" [rowHover]="true" [tableStyle]="{ 'min-width': '50rem', 'font-size': '14px' }">
         <ng-template pTemplate="caption">
           <div class="custom-fields">
             <span class="p-input-icon-right">
               <i class="pi pi-search"></i>
               <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="Pesquisar" />
             </span>
-            <p-dropdown [options]="options" [(ngModel)]="selectedPatient" optionLabel="label" [showClear]="true" placeholder="Selecione um status"></p-dropdown>
+            <p-columnFilter field="status" matchMode="equals" [showMenu]="false">
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-dropdown [ngModel]="value" [options]="statuses" (onChange)="filter($event.value)" placeholder="Selecione um status" [showClear]="true">
+                  <ng-template let-option pTemplate="item">
+                    <span class="ml-1 mt-1">{{ option.label }}</span>
+                  </ng-template>
+                </p-dropdown>
+              </ng-template>
+            </p-columnFilter>
           </div>
         </ng-template>
 
         <ng-template pTemplate="header">
           <tr>
             <th pSortableColumn="paciente">Paciente <p-sortIcon field="paciente"></p-sortIcon></th>
-            <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
+            <th pSortableColumn="status">Status <p-sortIcon field="paciente"></p-sortIcon></th>
             <th pSortableColumn="diagnostico">Diagnóstico <p-sortIcon field="diagnostico"></p-sortIcon></th>
             <th pSortableColumn="medicamento">Medicamento <p-sortIcon field="medicamento"></p-sortIcon></th>
             <th pSortableColumn="planoSaude">Plano de Saúde <p-sortIcon field="planoSaude"></p-sortIcon></th>
@@ -33,15 +41,30 @@
         <ng-template pTemplate="body" let-patient>
           <tr>
             <td>{{ patient.paciente }}</td>
-            <td><p-tag [severity]="patient.status ? 'success' : 'danger'">{{ patient.status ? 'Ativo' : 'Inativo' }}</p-tag></td>
+            <td><p-tag [value]="patient.status" [severity]="getSeverity(patient.status)"></p-tag></td>
             <td>{{ patient.diagnostico }}</td>
             <td>{{ patient.medicamento }}</td>
             <td>{{ patient.planoSaude }}</td>
             <td>{{ patient.lastUpdate | date:'dd/MM/yyyy' }}</td>
-            <td style="display: flex; align-items: center;">
-              <img src="../../../assets/images/svg/prescription.svg" alt="Prescrição" pTooltip="Nova solicitação" tooltipPosition="bottom">
-              <i class="pi pi-ellipsis-h" style="margin-left: 10px;"></i>
+            <td>
+              <div style="display: flex; align-items: center;">
+                <img src="../../../assets/images/svg/prescription.svg" alt="Prescrição" pTooltip="Nova solicitação" tooltipPosition="bottom">
+                <div class="dropdown-items">
+                  <button>
+                    <i class="pi pi-ellipsis-h" style="margin-left: 10px;"></i>
+                  </button>
+                  <div class="content">
+                    <a href="">Ativo</a>
+                    <a href="">Inativo</a>
+                  </div>
+                </div>
+              </div>
             </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="5">Nenhum registro encontrado.</td>
           </tr>
         </ng-template>
       </p-table>
