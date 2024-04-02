@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Patient } from '../pages/home/home.component';
 import { Observable } from 'rxjs';
@@ -14,8 +14,10 @@ export class PatientService {
   getPatientList(pagina: number): Observable<Patient[]> {
     const itemsPerPage = 20;
 
-    return this.http.get<Patient[]>(
-      `${this.API}?_start=${pagina}&_limit=${itemsPerPage}`
-    );
+    let params = new HttpParams()
+      .set('_page', pagina)
+      .set('_limit', itemsPerPage);
+
+    return this.http.get<Patient[]>(this.API, { params });
   }
 }

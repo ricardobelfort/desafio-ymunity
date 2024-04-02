@@ -102,7 +102,7 @@
     {
       "id": 12,
       "paciente": "Bernardo Albuquerque",
-      "status": true,
+      "status": false,
       "diagnostico": "Artrite Reumatoide",
       "medicamento": "Orencia",
       "planoSaude": "UNIMED NACIONAL",
@@ -120,7 +120,7 @@
     {
       "id": 14,
       "paciente": "Diadora Crisitina Marques",
-      "status": true,
+      "status": false,
       "diagnostico": "Espondilite Anquilosante",
       "medicamento": "Humira",
       "planoSaude": "COPASA",
@@ -156,7 +156,7 @@
     {
       "id": 18,
       "paciente": "Hélio Dnatas Gonçalves",
-      "status": true,
+      "status": false,
       "diagnostico": "Artrite Reumatoide",
       "medicamento": "Orencia",
       "planoSaude": "Comissão Nacional de Energia Nuclear",
@@ -174,7 +174,7 @@
     {
       "id": 20,
       "paciente": "Júlio César Sampaio Castro",
-      "status": true,
+      "status": false,
       "diagnostico": "Artrite Reumatoide",
       "medicamento": "Orencia",
       "planoSaude": "Fundo de Saúde do Exército",

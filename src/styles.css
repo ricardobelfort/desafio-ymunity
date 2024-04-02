@@ -13,6 +13,12 @@
   .p-button { background-color: #797EF5; }
   .p-button:hover { background-color: #363885; }
 
+  .p-datatable .p-datatable-header {
+    background: transparent;
+    border: none;
+    padding: 1rem 0;
+  }
+
   .p-datatable .p-datatable-thead > tr > th {
     background: #E0E9F8;
     border: 1px solid #F7F8F9;
@@ -24,5 +30,31 @@
   .p-datatable .p-datatable-tbody > tr > td {
     border: 1px solid #F7F8F9;
     border-width: 0 0 5px 0;
+  }
+  .p-tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: 32px;
+  }
+  .p-tag.p-tag-success {
+    background-color: #CAF1D8;
+    color: #22C55E;
+  }
+  .p-tag.p-tag-danger {
+    background-color: #FFD0CE;
+    color: #D9342B;
+  }
+  .p-tooltip .p-tooltip-text {
+    background-color: #7679A3;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+  }
+  .p-tooltip-arrow {
+    scale: 2;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
   }
 }

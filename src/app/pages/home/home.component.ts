@@ -1,16 +1,15 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
+import { TooltipModule } from 'primeng/tooltip';
+import { TagModule } from 'primeng/tag';
 import { PatientService } from '../../services/patient.service';
-
-interface Option {
-  name: string;
-  code: string;
-}
+import { Table } from 'primeng/table';
+import { DatePipe } from '@angular/common';
 
 export interface Patient {
   paciente: string;
@@ -31,16 +30,19 @@ export interface Patient {
     DropdownModule,
     FormsModule,
     TableModule,
+    TooltipModule,
+    TagModule,
+    DatePipe,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  search!: string;
-  options: Option[] | undefined;
-  selectedPatient: Option | undefined = {
-    name: 'PACIENTES ATIVOS',
-    code: 'PA',
+  @ViewChild('dt') dt: Table | undefined;
+  options!: any[];
+  selectedPatient = {
+    label: 'TODOS OS PACIENTES',
+    value: 'todos',
   };
 
   patients: Patient[] = [];
@@ -49,13 +51,30 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.options = [
-      { name: 'TODOS OS PACIENTES', code: 'ALL' },
-      { name: 'PACIENTES ATIVOS', code: 'PA' },
-      { name: 'PACIENTES INATIVOS', code: 'PI' },
+      { label: 'TODOS OS PACIENTES', value: 'todos' },
+      { label: 'PACIENTES ATIVOS', value: 'ativos' },
+      { label: 'PACIENTES INATIVOS', value: 'inativos' },
     ];
 
     this.patientService
       .getPatientList(this.currentPage)
       .subscribe((data) => (this.patients = data));
+  }
+
+  applyFilterGlobal($event: any, stringVal: any) {
+    this.dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
+  }
+
+  getSeverity(status: string) {
+    switch (status) {
+      case 'todos':
+        return 'info';
+
+      case 'ativos':
+        return 'success';
+
+      case 'inativos':
+        return 'danger';
+    }
   }
 }

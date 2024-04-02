@@ -16,12 +16,10 @@
   width: 100%;
 }
 
-.wrapper .header-section header,
-.wrapper .header-section .custom-fields {
+.wrapper .header-section header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
 }
 
 .wrapper .header-section header h1 {
@@ -33,4 +31,10 @@
 
 .wrapper .main-section {
   width: 100%;
+}
+
+.wrapper .main-section .custom-fields {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
