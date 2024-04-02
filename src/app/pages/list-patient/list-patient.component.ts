@@ -7,7 +7,6 @@ import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 import { TagModule } from 'primeng/tag';
 import { DatePipe } from '@angular/common';
-import { SplitButtonModule } from 'primeng/splitbutton';
 import { Patient } from '../../components/models/patient';
 import { MenuItem } from 'primeng/api/menuitem';
 import { Table } from 'primeng/table/table';
@@ -24,7 +23,6 @@ import { PatientService } from '../../services/patient.service';
     TableModule,
     TooltipModule,
     TagModule,
-    SplitButtonModule,
     DatePipe,
   ],
   templateUrl: './list-patient.component.html',
@@ -37,7 +35,6 @@ export class ListPatientComponent implements OnInit {
   currentPage: number = 1;
   items: MenuItem[] | undefined;
   loading: boolean = true;
-  visible: boolean = false;
 
   patientService = inject(PatientService);
 
@@ -67,9 +64,5 @@ export class ListPatientComponent implements OnInit {
       case 'inativo':
         return 'danger';
     }
-  }
-
-  createPatient() {
-    console.log('criar...');
   }
 }
